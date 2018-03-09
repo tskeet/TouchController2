@@ -19,6 +19,7 @@ public class TouchControllerScript : MonoBehaviour {
             {
                 Debug.Log("touch ended at: " + currTouch.position);
                 Vector3 tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(currTouch.position.x, currTouch.position.y, 0.0f));
+                tempPosition.z = 0.0f;
                 touchable.Tap(tempPosition);
             }
         }
