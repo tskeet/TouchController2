@@ -18,7 +18,7 @@ public class TouchControllerScript : MonoBehaviour {
             if(currTouch.phase == TouchPhase.Ended)
             {
                 Debug.Log("touch ended at: " + currTouch.position);
-                Vector3 tempPosition = new Vector3(currTouch.position.x, currTouch.position.y, 0.0f);
+                Vector3 tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(currTouch.position.x, currTouch.position.y, 0.0f));
                 touchable.Tap(tempPosition);
             }
         }
