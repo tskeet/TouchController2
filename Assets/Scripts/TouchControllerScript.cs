@@ -17,6 +17,7 @@ public class TouchControllerScript : MonoBehaviour {
             Touch currTouch = Input.GetTouch(0);
             if(currTouch.phase == TouchPhase.Ended)
             {
+                Debug.Log("touch ended at: " + currTouch.position);
                 Vector3 tempPosition = new Vector3(currTouch.position.x, currTouch.position.y, 0.0f);
                 touchable.Tap(tempPosition);
             }

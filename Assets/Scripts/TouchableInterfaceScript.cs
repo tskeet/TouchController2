@@ -18,6 +18,7 @@ public class TouchableInterfaceScript : Touchable {
 
     public override void Tap(Vector3 position)
     {
+        Debug.Log("in Tap, creating circle at: " + position);
         GameObject clone = Object.Instantiate(tapCircle, position, Quaternion.identity);
         GameObject.Destroy(clone, 2.0f);
     }
