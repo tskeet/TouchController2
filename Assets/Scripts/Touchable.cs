@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class Touchable : MonoBehaviour {
 
-    public abstract void Tap(Vector3 position);
+    public abstract void Tap(Vector2 position);
 }
