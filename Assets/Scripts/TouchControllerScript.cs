@@ -15,9 +15,17 @@ public class TouchControllerScript : MonoBehaviour {
 		if(Input.touchCount == 1)
         {
             Touch currTouch = Input.GetTouch(0);
-            if(currTouch.phase == TouchPhase.Ended)
+            if(currTouch.phase == TouchPhase.Began)
             {
-                touchable.Tap(currTouch.position);
+                touchable.SingleFingerEnter(currTouch.position);
+            }
+            else if(currTouch.phase == TouchPhase.Moved)
+            {
+                touchable.SingleFingerDrag(currTouch.position);
+            }
+            else if(currTouch.phase == TouchPhase.Ended)
+            {
+                touchable.SingleFingerLeave(currTouch.position);
             }
         }
 	}
