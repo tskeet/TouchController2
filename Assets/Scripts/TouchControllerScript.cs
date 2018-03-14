@@ -6,6 +6,8 @@ public class TouchControllerScript : MonoBehaviour {
 
     public Touchable touchable;
 
+    public float spatialThreshold = 0.5f;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -21,7 +23,10 @@ public class TouchControllerScript : MonoBehaviour {
             }
             else if(currTouch.phase == TouchPhase.Moved)
             {
-                touchable.SingleFingerDrag(currTouch.position);
+                if (this.TestSpatialThreshold(currTouch.deltaPosition.magnitude))
+                {
+                    touchable.SingleFingerDrag(currTouch.position);
+                }
             }
             else if(currTouch.phase == TouchPhase.Ended)
             {
@@ -37,4 +42,9 @@ public class TouchControllerScript : MonoBehaviour {
             }
         }
 	}
+
+    private bool TestSpatialThreshold(float magnitude)
+    {
+        return magnitude >= spatialThreshold;
+    }
 }
