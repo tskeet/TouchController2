@@ -26,6 +26,14 @@ public class TouchControllerScript : MonoBehaviour {
             else if(currTouch.phase == TouchPhase.Ended)
             {
                 touchable.SingleFingerLeave(currTouch.position);
+            } 
+            else if(currTouch.phase == TouchPhase.Stationary)
+            {
+                touchable.SingleFingerHold(currTouch.position);
+            }
+            else if(currTouch.phase == TouchPhase.Canceled)
+            {
+                touchable.SingleFingerLeave(currTouch.position);
             }
         }
 	}

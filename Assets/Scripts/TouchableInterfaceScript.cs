@@ -7,6 +7,7 @@ public class TouchableInterfaceScript : Touchable {
     public GameObject tapCircle;
 
     private GameObject touchCircle;
+    private SpriteRenderer touchCircleRenderer;
 
     // Use this for initialization
     void Start () {
@@ -31,6 +32,8 @@ public class TouchableInterfaceScript : Touchable {
         Vector3 tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(enterPosition.x, enterPosition.y, 0.0f));
         tempPosition.z = 0.0f;
         touchCircle = Object.Instantiate(tapCircle, tempPosition, Quaternion.identity);
+        SpriteRenderer touchCircleRenderer = touchCircle.GetComponent<SpriteRenderer>();
+    
     }
 
     public override void SingleFingerLeave(Vector2 position)
@@ -40,11 +43,12 @@ public class TouchableInterfaceScript : Touchable {
 
     public override void SingleFingerHold(Vector2 position)
     {
-        throw new System.NotImplementedException();
+        touchCircleRenderer.color = Color.black;
     }
 
     public override void SingleFingerDrag(Vector2 newPosition)
     {
+        touchCircleRenderer.color = Color.white;
         Vector3 tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(newPosition.x, newPosition.y));
         tempPosition.z = 0.0f;
         touchCircle.transform.SetPositionAndRotation(tempPosition, Quaternion.identity);
