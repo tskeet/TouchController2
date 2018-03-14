@@ -32,7 +32,7 @@ public class TouchableInterfaceScript : Touchable {
         Vector3 tempPosition = Camera.main.ScreenToWorldPoint(new Vector3(enterPosition.x, enterPosition.y, 0.0f));
         tempPosition.z = 0.0f;
         touchCircle = Object.Instantiate(tapCircle, tempPosition, Quaternion.identity);
-        SpriteRenderer touchCircleRenderer = touchCircle.GetComponent<SpriteRenderer>();
+        touchCircleRenderer = touchCircle.GetComponent<SpriteRenderer>();
     
     }
 
